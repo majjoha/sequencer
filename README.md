@@ -47,8 +47,6 @@ Sequencer listens to the value of any input field, drop-down list, etc., with th
 
 The code above will make Sequencer play the file `audio/bass1.mp3`.
 
-* * *
-
 ## Dependencies
 
 The only thing needed to make Sequencer run is [jQuery][3].
@@ -72,8 +70,6 @@ Table omitted. See article instead.
 *   Create function to add more tracks.
 *   Add `<input type="range">` for setting the tempo.
 *   Click on step to run it.
-
-* * *
 
 ## Contribute
 
