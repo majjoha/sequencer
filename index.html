@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sequencer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+<body onload="prettyPrint()">
+
+	<div class="container">
+		<div class="hero-unit">
+			<h1>Sequencer</h1>
+			<p>This is an experimental, basic sequencer written in JavaScript. Use it any way you like.</p>
+			<form action="sequencer.js">
+				<input type="submit" class="btn btn-large btn-primary" value="Download Sequencer">
+			</form>
+		</div>
+
+		<h2>Demo</h2>
+		<form id="sequencer">
+		</form>
+		<audio id="player" style="display: none;"></audio>
+		<div class="row-fluid">
+			<div class="span6">
+				<button class="btn btn" id="start"><i class="icon-play"></i> Start</button>
+				<button class="btn btn" id="stop"><i class="icon-pause"></i> Pause</button>
+			</div>
+			<div class="span6 add_step">
+				<form id="new" class="form-inline">
+					<select id="audio_file">
+					  <option value="audio/bass1.mp3">Bass 1</option>
+					  <option value="audio/bass2.mp3">Bass 2</option>
+					  <option value="audio/bass3.mp3">Bass 3</option>
+					  <option value="audio/bass4.mp3">Bass 4</option>
+					  <option value="audio/bass5.mp3">Bass 5</option>
+					  <option value="audio/bass6.mp3">Bass 6</option>
+					  <option value="audio/bass7.mp3">Bass 7</option>
+					  <option value="audio/bass8.mp3">Bass 8</option>
+					  <option value="audio/bass9.mp3">Bass 9</option>
+					  <option value="audio/bass10.mp3">Bass 10</option>
+					  <option value="audio/bass11.mp3">Bass 11</option>
+					  <option value="audio/bass12.mp3">Bass 12</option>
+					  <option value="audio/bass13.mp3">Bass 13</option>
+					  <option value="audio/bass14.mp3">Bass 14</option>
+					  <option value="audio/bass15.mp3">Bass 15</option>
+					  <option value="audio/bass16.mp3">Bass 16</option>
+					  <option value="audio/bell1.mp3">Bell 1</option>
+					  <option value="audio/bell2.mp3">Bell 2</option>
+					  <option value="audio/bell3.mp3">Bell 3</option>
+					  <option value="audio/bell4.mp3">Bell 4</option>
+					  <option value="audio/bell5.mp3">Bell 5</option>
+					  <option value="audio/bell6.mp3">Bell 6</option>
+					  <option value="audio/bell7.mp3">Bell 7</option>
+					  <option value="audio/bell8.mp3">Bell 8</option>
+					  <option value="audio/bell9.mp3">Bell 9</option>
+					  <option value="audio/bell10.mp3">Bell 10</option>
+					  <option value="audio/bell11.mp3">Bell 11</option>
+					  <option value="audio/bell12.mp3">Bell 12</option>
+					  <option value="audio/bell13.mp3">Bell 13</option>
+					  <option value="audio/bell14.mp3">Bell 14</option>
+					  <option value="audio/bell15.mp3">Bell 15</option>
+					  <option value="audio/bell16.mp3">Bell 16</option>
+					  <option value="audio/orchestra1.mp3">Orchestra 1</option>
+					  <option value="audio/orchestra2.mp3">Orchestra 2</option>
+					  <option value="audio/orchestra3.mp3">Orchestra 3</option>
+					  <option value="audio/orchestra4.mp3">Orchestra 4</option>
+					  <option value="audio/orchestra5.mp3">Orchestra 5</option>
+					  <option value="audio/orchestra6.mp3">Orchestra 6</option>
+					  <option value="audio/orchestra7.mp3">Orchestra 7</option>
+					  <option value="audio/orchestra8.mp3">Orchestra 8</option>
+					  <option value="audio/orchestra9.mp3">Orchestra 9</option>
+					  <option value="audio/orchestra10.mp3">Orchestra 10</option>
+					  <option value="audio/orchestra11.mp3">Orchestra 11</option>
+					  <option value="audio/orchestra12.mp3">Orchestra 12</option>
+					  <option value="audio/orchestra13.mp3">Orchestra 13</option>
+					  <option value="audio/orchestra14.mp3">Orchestra 14</option>
+					  <option value="audio/orchestra15.mp3">Orchestra 15</option>
+					  <option value="audio/orchestra16.mp3">Orchestra 16</option>
+					  <option value="audio/polysynth1.mp3">Polysynth 1</option>
+					  <option value="audio/polysynth2.mp3">Polysynth 2</option>
+					  <option value="audio/polysynth3.mp3">Polysynth 3</option>
+					  <option value="audio/polysynth4.mp3">Polysynth 4</option>
+					  <option value="audio/polysynth5.mp3">Polysynth 5</option>
+					  <option value="audio/polysynth6.mp3">Polysynth 6</option>
+					  <option value="audio/polysynth7.mp3">Polysynth 7</option>
+					  <option value="audio/polysynth8.mp3">Polysynth 8</option>
+					  <option value="audio/polysynth9.mp3">Polysynth 9</option>
+					  <option value="audio/polysynth10.mp3">Polysynth 10</option>
+					  <option value="audio/polysynth11.mp3">Polysynth 11</option>
+					  <option value="audio/polysynth12.mp3">Polysynth 12</option>
+					  <option value="audio/polysynth13.mp3">Polysynth 13</option>
+					  <option value="audio/polysynth14.mp3">Polysynth 14</option>
+					  <option value="audio/polysynth15.mp3">Polysynth 15</option>
+					  <option value="audio/polysynth16.mp3">Polysynth 16</option>
+					</select>
+					<button class="btn btn-success" id="add"><i class="icon-plus icon-white"></i> Add step</button>
+				</form>
+			</div>
+		</div>
+
+		<hr>
+
+		<h2>About Sequencer</h2>
+		<p>Sequencer is a result of boredom during the Easter holiday in 2013. It was developed primarily to experience the possibilities of music making in the browser using basic JavaScript. It is only meant as an experiment. If you want to use your computer for real music creation, I recommend <a href="http://puredata.info/">PureData</a> or <a href="http://cycling74.com/products/max/">Max/MSP</a>.</p>
+
+		<hr>
+
+		<h2>How to</h2>
+		<h3>Setup</h3>
+		<p>Using Sequencer is quite easy. First and foremost, we need an audio player. Create it by writing as follows:</p>
+		<pre class="prettyprint"><code>&lt;audio id=&quot;player&quot; style=&quot;display: none;&quot;&gt;&lt;/audio&gt;</code></pre>
+		<p>To make any use of this device, we need audio. Add the sequencer and your first audio element:</p>
+		<pre class="prettyprint"><code>&lt;form id=&quot;sequencer&quot;&gt;
+	&lt;input type=&quot;radio&quot; name=&quot;sequences&quot; src=&quot;audio/click_09.wav&quot;&gt;
+&lt;/form&gt;</code></pre>
+		<p>Add as many radio button elements as you like. Remember to add the <code>src</code> attribute to the radio button and an audio file.</p>
+		<p>To play and pause your sequence, we need two buttons. Add them somewhere on your page.</p>
+		<pre class="prettyprint"><code>&lt;button id=&quot;start&quot;&gt;Start&lt;/button&gt;
+&lt;button id=&quot;stop&quot;&gt;Pause&lt;/button&gt;</code></pre>
+		<p>Now, you've added the HTML to make the sequencer run. At the bottom of your HTML document before the closing <code>&lt;/body&gt;</code> tag, include <code>sequencer.js</code> and instantiate Sequencer. It only takes one parameter which is tempo.</p>
+		<pre class="prettyprint"><code>&lt;script src=&quot;sequencer.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;s = new Sequencer(1000);&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+	
+		<h3>Additional</h2>
+		<p>You can add new steps to your sequencer dynamically from an input field or a drop-down list as presented in the demo. To make Sequencer listen to your input, we need a button more. Add this to your page:</p>
+		<pre class="prettyprint"><code>&lt;button id=&quot;add&quot;&gt;Add&lt;/button&gt;</code></pre>
+		<p>Sequencer listens to the value of any input field, drop-down list, etc., with the id <code>audio_file</code>, e.g.</p>
+		<pre class="prettyprint"><code>&lt;select id=&quot;audio_file&quot;&gt;
+	&lt;option value=&quot;audio/bass1.mp3&quot;&gt;Bass 1&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+		<p>The code above will make Sequencer play the file <code>audio/bass1.mp3</code>.</p>
+
+		<hr>
+
+		<h2>Dependencies</h2>
+		<p>The only thing needed to make Sequencer run is <a href="http://jquery.com/">jQuery</a>.</p>
+
+		<hr>
+
+		<h2>Compatibility</h2>
+		<p>I've tested the sequencer in Google Chrome, v. 26.0, Safari, v.6.0, and Mozilla Firefox, v. 19.0, on a Macbook Pro 15" Retina, medio 2012 running Mac OS X 10.8.3. Sequencer works properly in all three browsers. However, you must have codec support in mind. See codec support for the <code>&lt;audio&gt;</code> element below.</p>
+		<p>Furthermore, I've also tested the sequencer in Safari, v. 6.0, and Google Chrome, v. 25.0, on an iPhone 3G. Currently, none of these browsers support Sequencer.</p>
+		<p>If you have tested Sequencer in a browser not mentioned here, please let me know. Reach me at <a href="mailto:mathias@mjj.io">mathias@mjj.io</a>.</p>
+		<h3>Codec support</h3>
+		<p>This table documents the current support for audio codecs by the <code>&lt;audio&gt;</code> element. It is borrowed from <a href="https://en.wikipedia.org/wiki/HTML5_Audio">this</a> article.</p>
+		<table class="table table-striped">
+			<tr>
+				<th>Browser</th>
+				<th>Operating system</th>
+				<th>Ogg Vorbis</th>
+				<th>WAV PCM</th>
+				<th>MP3</th>
+				<th>AAC</th>
+				<th>WebMVorbis</th>
+				<th>Ogg Opus</th>
+			</tr>
+			<tr>
+				<th>Google Chrome</th>
+				<td>All supported</td>
+				<td><span class="badge badge-success">9</span></td>
+				<td><span class="badge badge-success">Yes</span></td>
+				<td><span class="badge badge-success">Yes</span></td>
+				<td><span class="badge badge-success">Yes</span></td>
+				<td><span class="badge badge-success">Yes</span></td>
+				<td><span class="badge badge-success">25</span></td>
+			</tr>
+			<tr>
+				<th>Internet Explorer</th>
+				<td>Windows</td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-success">9.0</span></td>
+				<td><span class="badge badge-success">9.0</span></td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-important">No</span></td>
+			</tr>
+			<tr>
+				<th>Mozilla Firefox</th>
+				<td>All supported</td>
+				<td><span class="badge badge-success">3.5 (1.9.1)</span></td>
+				<td><span class="badge badge-success">3.5 (1.9.1)</span></td>
+				<td><span class="badge badge-warning">21.0 (21.0), Windows only</span></td>
+				<td><span class="badge badge-warning">21.0 (21.0), Windows only</span></td>
+				<td><span class="badge badge-success">4.0 (2.0)</span></td>
+				<td><span class="badge badge-success">15.0 (15.0)</span></td>
+			</tr>
+			<tr>
+				<th>Opera</th>
+				<td>All supported</td>
+				<td><span class="badge badge-success">10.50</span></td>
+				<td><span class="badge badge-success">11.00</span></td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-success">10.60</span></td>
+				<td><span class="badge badge-important">No</span></td>
+			</tr>
+			<tr>
+				<th>Safari</th>
+				<td>OS X</td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-success">3.1</span></td>
+				<td><span class="badge badge-success">3.1</span></td>
+				<td><span class="badge badge-success">3.1</span></td>
+				<td><span class="badge badge-important">No</span></td>
+				<td><span class="badge badge-important">No</span></td>
+			</tr>
+		</table>
+
+		<hr>
+
+		<h2>To-do</h2>
+		<ul>
+			<li>Create function to add more tracks.</li>
+			<li>Add <code>&lt;input type="range"&gt;</code> for setting the tempo.</li>
+			<li>Click on step to run it.</li>
+		</ul>
+
+		<hr>
+
+		<h2>Contribute</h2>
+		<p>The source is hosted at GitHub: <a href="http://github.com/majjoha/sequencer">http://github.com/majjoha/sequencer</a>.</p>
+
+		<h2>License</h2>
+		<p>Copyright &copy; 2013 Mathias Jean Johansen &lt;mathias@mjj.io&gt;</p>
+		<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+		<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+		<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+	</div>
+	</div>
+
+<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="sequencer.js"></script>
+<script>
+$(function() {
+	s = new Sequencer(600); // Instantiating the Sequencer
+});	
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39729813-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
