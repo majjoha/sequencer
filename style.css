@@ -1,0 +1,13 @@
+body {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+input[type="radio"] {
+	margin: 1em 1em 0 0;
+	cursor: default;
+}
+
+.add_step {
+	text-align: right;
+}
